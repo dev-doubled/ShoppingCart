@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shantell Sans', cursive;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 95%;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
+}
+
+.header__search {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header__search h1 {
+    color: #2691d9;
+    font-size: 24px;
+}
+
+.logout {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    padding: 5px 10px;
+    transition: linear .5s;
+}
+.shopping {
+    background-color: #2691d9;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    transition: linear .5s;
+}
+.header__search a:hover {
+    padding: 7px 12px;
+}
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+.search input[type="text"] {
+    width: 60%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #2691d9;
+    outline: none;
+    transition: all 0.5s;
+}
+
+.search input[type="submit"] {
+    width: 20%;
+    height: 40px;
+    border: 1px solid #2691d9;
+    background: #2691d9;
+    font-size: 16px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    margin-left: 5px;
+}
+.result__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+
+th, td {
+    padding: 6px 17px;
+    font-size: 18px;
+}
+
+#edit {
+    width: 200px;
+    text-align: center;
+}
+
+#edit-1 {
+    width: 100px;
+    text-align: center;
+}
+
+#edit, #edit-1 {
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+
+#delete a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+#update {
+    padding: 6px;
+    cursor: pointer;
+    background-color: #2691d9;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 70px;
+    border-radius: 5px;
+}
+
+.next__page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 40px;
+    left: 40%;
+}
+
+.page.current {
+    text-decoration: none;
+    color: #fff;
+    background-color: #2691d9;
+    padding: 5px 20px;
+    margin-right: 10px;
+    width: 50px;
+    text-align: center;
+}
+.page {
+    text-decoration: none;
+    border: 1px solid #2691d9;
+    color: black;
+    padding: 5px 20px;
+    margin-right: 10px;
+    width: 50px;
+    text-align: center;
+}
+
+.page:hover {
+    background-color: #9cd0f3;
+}
+
+.errorMessage {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}

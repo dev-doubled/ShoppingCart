@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shantell Sans', cursive;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: scroll;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    background-color: #181823;
+    height: 65px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+h3 {
+    color: #fff;
+}
+.header span {
+    color: red;
+}
+.result__search {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.search input[type="text"] {
+    width: 80%;
+    padding: 0 5px;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid #2691d9;
+    outline: none;
+    border-radius: 10px;
+}
+
+.search input[type="submit"] {
+    width: 13%;
+    height: 30px;
+    border: 1px solid #2691d9;
+    background: #2691d9;
+    font-size: 16px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    outline: none;
+}
+
+.phones{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    position: relative;
+}
+
+.phone {
+    position: relative;
+    margin-top: 20px;
+    flex-basis: 21%;
+    height: 430px;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#form {
+    margin-top: 20px;
+    flex-basis: 21%;
+    height: 430px;
+} 
+
+#form .imgs {
+    margin-bottom: 10px;
+}
+
+.phone .imgs img {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+.phone .decs {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone .buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+}
+
+.addToCart {
+    margin-left: 70px;
+}
+
+
+.quantitys {
+    margin-left: 10px;
+}
+
+input[type="text"] {
+    border: none;
+    outline: none;
+    font-size: 17px;
+}
+
+#id {
+    width: 80px;
+    text-align: center;
+}
+
+#name {
+    width: 200px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 21px;
+}
+
+#price {
+    width: 100px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 21px;
+    color: red;
+}
+
+#quantity {
+    width: 60px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+#add {
+    cursor: pointer;
+    width: 100px;
+    border: none;
+    outline: none;
+    padding: 12px;
+    background-color: #D61355;
+    color: #fff;
+    border-radius: 12px;
+}
+
+
+
+.logout {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    padding: 5px 10px;
+    text-align: center;
+    margin-left: 3px;
+}
+
+.logout-a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#view {
+    cursor: pointer;
+    padding: 5px;
+    color: #fff;
+    background-color: #2691d9;
+    text-decoration: none;
+    text-align: center;
+}
+
+#view-a {
+    cursor: pointer;
+    padding: 5px;
+    color: #fff;
+    background-color: #2691d9;
+    text-decoration: none;
+    text-align: center;
+}
+
+.addPhone {
+    text-decoration: none;
+    color: #fff;
+    background-color: #E90064;
+    padding: 5px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.next-page {
+    margin-top: 50px;
+}
+
+.next {
+    text-decoration: none;
+    border: 1px solid #2691d9;
+    color: black;
+    padding: 5px 20px;
+    margin-right: 10px;
+    width: 50px;
+    text-align: center;
+}
+
+.next.current {
+    text-decoration: none;
+    color: #fff;
+    background-color: #2691d9;
+    padding: 5px 20px;
+    margin-right: 10px;
+    width: 50px;
+    text-align: center;
+}

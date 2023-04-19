@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SIGN UP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="signup.css">
+    </head>
+    <body>
+        <div class="main">
+            <h1>SIGN UP FORM</h1>
+            <form action="MainController" method="post">
+                <div class="userID text">
+                    <input title="UserID" type="text" name="userID" required="" /><br>
+                    <span></span>
+                    <label>User ID</label>
+                </div>
+                <div class="fullName text">
+                    <input title="fullName" type="text" name="fullName" required="" /><br>
+                    <span></span>
+                    <label>Full Name</label>
+                </div>
+                <div class="roleID text">
+                    <input id="detail" title="roleID" type="text" name="roleID" onclick="showDetails()" readonly="" /><br>
+                    <span></span>
+                    <label>Role ID</label>
+                </div>
+                <div class="password text">
+                    <input title="pass" type="password" name="password" required=""><br>
+                    <span></span>
+                    <label>Password</label>
+                </div>
+                <div class="confirm text">
+                    <input title="confirm" type="password" name="confirm" required="" /><br>
+                    <span></span>
+                    <label>Confirm password</label>
+                </div>
+                <div class="submit-form">
+                    <div class="submit">
+                        <input type="submit" name="action" value="Signup" />
+                    </div>
+                    <div class="reset">
+                        <input type="reset" value="Reset" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            function showDetails() {
+                document.getElementById('detail').value = 'US'
+                document.getElementById('detail').removeAttribute("readonly")
+            }
+        </script>
+    </body>
+</html>
