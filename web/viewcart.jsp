@@ -22,7 +22,7 @@
         <div class="main">
             <div class="view-card">
                 <c:if test="${not empty sessionScope.CART}">
-                    <h1>View Cart</h1>
+                    <h1 style="color: red">View Cart</h1>
                     <div class="cart">
                         <c:if test="${requestScope.QUANTITY_ERROR != null}">
                             <div class="alert alert-danger" role="alert">
@@ -89,7 +89,7 @@
             </div>
             <c:if  test="${not empty sessionScope.CART}">
                 <div class="order-info">
-                    <h1>Customer information</h1>
+                    <h1 style="color: #2691d9">Customer information</h1>
                     <form action="MainController" method="POST" id="form-info">
                         <div class="name text">
                             <input title="name" type="text" name="name" required="" /><br>

@@ -32,7 +32,7 @@ public class AuthenFilter implements Filter {
     private static final boolean debug = true;
     private static final String US = "US";
     private static final String AD = "AD";
-    private static final String LOGIN_PAGE = "Login.jsp";
+    private static final String LOGIN_PAGE = "login.jsp";
     private static List<String> USER_RESOURCE;
     private static List<String> NON_AUTHEN_RESOURCE;
     private static List<String> ADMIN_RESOURCE;
@@ -62,22 +62,23 @@ public class AuthenFilter implements Filter {
 
         //resourcw mma ko can xac thuc hay phan quyen
         NON_AUTHEN_RESOURCE = new ArrayList<>();
-        NON_AUTHEN_RESOURCE.add("Login.html");
-        NON_AUTHEN_RESOURCE.add("Login.jsp");
+        NON_AUTHEN_RESOURCE.add("login.html");
+        NON_AUTHEN_RESOURCE.add("login.jsp");
         NON_AUTHEN_RESOURCE.add("MainController");
         NON_AUTHEN_RESOURCE.add("LoginController");
         NON_AUTHEN_RESOURCE.add("LoginGoogleController");
         NON_AUTHEN_RESOURCE.add("OrderController");
         NON_AUTHEN_RESOURCE.add("FindController");
+        NON_AUTHEN_RESOURCE.add("EmailSender");
         NON_AUTHEN_RESOURCE.add(".png");
         NON_AUTHEN_RESOURCE.add(".jpg");
         NON_AUTHEN_RESOURCE.add(".gif");
         NON_AUTHEN_RESOURCE.add("forgotPass.jsp");
         NON_AUTHEN_RESOURCE.add("verify.jsp");
         NON_AUTHEN_RESOURCE.add("enterPass.jsp");
-        NON_AUTHEN_RESOURCE.add("Shopping.jsp");
-        NON_AUTHEN_RESOURCE.add("ShoppingAdmin.jsp");
-        NON_AUTHEN_RESOURCE.add("AddProduct.jsp");
+        NON_AUTHEN_RESOURCE.add("shopping.jsp");
+        NON_AUTHEN_RESOURCE.add("shoppingAdmin.jsp");
+        NON_AUTHEN_RESOURCE.add("addProduct.jsp");
         NON_AUTHEN_RESOURCE.add("createUser.jsp");
         NON_AUTHEN_RESOURCE.add("error.jsp");
         NON_AUTHEN_RESOURCE.add("viewcart.jsp");
@@ -167,7 +168,7 @@ public class AuthenFilter implements Filter {
             String uri = req.getRequestURI();
             int index = uri.lastIndexOf("/");
             String resource = uri.substring(index + 1);
-            if(resource.contains("Login.jsp")) {
+            if (resource.contains("login.jsp")) {
                 VerifyDAO dao = new VerifyDAO();
                 String email = (String) req.getSession().getAttribute("FORGET_EMAIL");
                 dao.delete(email);

@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CreateController extends HttpServlet {
 
     private static final String ERROR = "createUser.jsp";
-    private static final String SUCCESS = "Login.jsp";
+    private static final String SUCCESS = "login.jsp";
     private static final long serialVersionUID = 1L;
     private static final String SECRET_KEY = "6Lcyh_kkAAAAAEPNvRP_ncMFLAIBXI2uQdd25JUa";
 

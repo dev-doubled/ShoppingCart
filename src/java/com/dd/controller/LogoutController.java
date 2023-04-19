@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 public class LogoutController extends HttpServlet {
 
     private static final String ERROR = "admin.jsp";
-    private static final String SUCCESS = "Login.jsp";
+    private static final String SUCCESS = "login.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -24,7 +24,7 @@
                 </div>
                 <div class="user__info">
                     <h4><span class="edit">Full Name: </span>${sessionScope.LOGIN_USER.fullName}</h4>
-                    <h4><span class="edit">Full Name: </span>${sessionScope.LOGIN_USER.email}</h4>
+                    <h4><span class="edit">Email: </span>${sessionScope.LOGIN_USER.email}</h4>
                     <h4><span class="edit">User ID: </span>${sessionScope.LOGIN_USER.userID}</h4>
                     <h4><span class="edit">Role ID: </span>${sessionScope.LOGIN_USER.roleID}</h4>
                     <h4><span class="edit">Password: </span>*******</h4>

@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AddPhoneController", urlPatterns = {"/AddPhoneController"})
 public class AddPhoneController extends HttpServlet {
 
-    private static final String ERROR = "AddProduct.jsp";
+    private static final String ERROR = "addProduct.jsp";
     private static final String SUCCESS = "MainController?search=&action=Phone&currPage=1";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

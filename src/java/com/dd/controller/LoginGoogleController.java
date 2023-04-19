@@ -29,7 +29,7 @@ import org.apache.http.client.fluent.Request;
 @WebServlet(name = "LoginGoogleController", urlPatterns = {"/LoginGoogleController"})
 public class LoginGoogleController extends HttpServlet {
 
-    private static final String ERROR = "Login.jsp";
+    private static final String ERROR = "login.jsp";
 
     private static final String ADMIN_PAGE = "admin.jsp";
     private static final String AD = "AD";

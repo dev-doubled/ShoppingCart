@@ -66,7 +66,6 @@ public class FindController extends HttpServlet {
 
                 emailSender.SendMessage(email, subject, message);
                 request.setAttribute("START_COUNT", true);
-
                 url = SUCCESS;
             } else {
                 request.setAttribute("ERROR_FORGOT", "UserID or Email does not exist!");

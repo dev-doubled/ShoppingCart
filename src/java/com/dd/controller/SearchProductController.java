@@ -24,9 +24,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "SearchProductController", urlPatterns = {"/SearchProductController"})
 public class SearchProductController extends HttpServlet {
 
-    private static final String ERROR = "Shopping.jsp";
-    private static final String SUCCESS_US = "Shopping.jsp";
-    private static final String SUCCESS_AD = "ShoppingAdmin.jsp";
+    private static final String ERROR = "shopping.jsp";
+    private static final String SUCCESS_US = "shopping.jsp";
+    private static final String SUCCESS_AD = "shoppingAdmin.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -40,24 +40,13 @@ public class RemoveController extends HttpServlet {
                 if (cart.getCart().containsKey(phoneID)) {
                     boolean check = cart.remove(phoneID);
                     if (check) {
-                        if (user.getRoleID().equals("US")) {
-                            if (cart.getCart().size() == 0) {
-                                request.getSession().setAttribute("CART", null);
-                                url = US;
-                            } else {
-                                request.getSession().setAttribute("CART", cart);
-                                url = SUCCESS;
-                            }
+                        if (cart.getCart().size() == 0) {
+                            request.getSession().setAttribute("CART", null);
+                            url = SUCCESS;
                         } else {
-                            if (cart.getCart().size() == 0) {
-                                request.getSession().setAttribute("CART", null);
-                                url = AD;
-                            } else {
-                                request.getSession().setAttribute("CART", cart);
-                                url = SUCCESS;
-                            }
+                            request.getSession().setAttribute("CART", cart);
+                            url = SUCCESS;
                         }
-
                     }
                 }
             }

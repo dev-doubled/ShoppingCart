@@ -49,7 +49,7 @@ h3 {
 
 .search input[type="text"] {
     width: 80%;
-    padding: 0 5px;
+    padding: 10px 10px;
     height: 30px;
     font-size: 16px;
     border: 1px solid #2691d9;
@@ -82,11 +82,11 @@ h3 {
 
 .phone {
     position: relative;
-    margin-top: 20px;
+    margin-top: 10px;
     flex-basis: 21%;
     height: 430px;
     background-color: #fff;
-    border-radius: 25px;
+    border-radius: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
@@ -119,12 +119,13 @@ h3 {
 }
 
 .addToCart {
-    margin-left: 70px;
+    margin-left: 100px;
 }
 
 
 .quantitys {
-    margin-left: 10px;
+    margin-left: 20px;
+    
 }
 
 input[type="text"] {
