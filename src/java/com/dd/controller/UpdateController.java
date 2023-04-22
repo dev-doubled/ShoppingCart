@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -23,7 +24,7 @@ public class UpdateController extends HttpServlet {
 
     private static final String ERROR = "SearchController";
     private static final String SUCCESS = "SearchController";
-
+        private static final Logger logger = Logger.getLogger(UpdateController.class);
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,9 +45,10 @@ public class UpdateController extends HttpServlet {
                     request.getSession().setAttribute("LOGIN_USER", loginUser);
                 }
                 url = SUCCESS;
+                logger.info("Update successfully!");
             }
         } catch (Exception e) {
-            log("Error at UpdateController: " + e.toString());
+            logger.error("Error at UpdateController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

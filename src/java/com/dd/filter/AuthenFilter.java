@@ -32,7 +32,7 @@ public class AuthenFilter implements Filter {
     private static final boolean debug = true;
     private static final String US = "US";
     private static final String AD = "AD";
-    private static final String LOGIN_PAGE = "login.jsp";
+    private static final String LOGIN_PAGE = "login.html";
     private static List<String> USER_RESOURCE;
     private static List<String> NON_AUTHEN_RESOURCE;
     private static List<String> ADMIN_RESOURCE;
@@ -50,6 +50,9 @@ public class AuthenFilter implements Filter {
 //        USER_RESOURCE.add("MainController");
 //        USER_RESOURCE.add("LoginController");
         USER_RESOURCE.add("user.jsp");
+        USER_RESOURCE.add("shopping.jsp");
+        USER_RESOURCE.add("viewcart.jsp");
+        USER_RESOURCE.add("viewcartSuccess.jsp");
 
         //resource ma role AD duoc phep du dung
         ADMIN_RESOURCE = new ArrayList<>();
@@ -76,14 +79,14 @@ public class AuthenFilter implements Filter {
         NON_AUTHEN_RESOURCE.add("forgotPass.jsp");
         NON_AUTHEN_RESOURCE.add("verify.jsp");
         NON_AUTHEN_RESOURCE.add("enterPass.jsp");
-        NON_AUTHEN_RESOURCE.add("shopping.jsp");
-        NON_AUTHEN_RESOURCE.add("shoppingAdmin.jsp");
+//        NON_AUTHEN_RESOURCE.add("shopping.jsp");
+//        NON_AUTHEN_RESOURCE.add("shoppingAdmin.jsp");
         NON_AUTHEN_RESOURCE.add("addProduct.jsp");
         NON_AUTHEN_RESOURCE.add("createUser.jsp");
         NON_AUTHEN_RESOURCE.add("error.jsp");
-        NON_AUTHEN_RESOURCE.add("viewcart.jsp");
-        NON_AUTHEN_RESOURCE.add("viewcartAdmin.jsp");
-        NON_AUTHEN_RESOURCE.add("viewcartSuccess.jsp");
+//        NON_AUTHEN_RESOURCE.add("viewcart.jsp");
+//        NON_AUTHEN_RESOURCE.add("viewcartAdmin.jsp");
+//        NON_AUTHEN_RESOURCE.add("viewcartSuccess.jsp");
         NON_AUTHEN_RESOURCE.add("add.css");
         NON_AUTHEN_RESOURCE.add("admin.css");
         NON_AUTHEN_RESOURCE.add("login.css");

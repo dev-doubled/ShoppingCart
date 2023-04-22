@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -21,11 +22,14 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
+
     private static final String ERROR = "login.jsp";
     private static final String ADMIN_PAGE = "admin.jsp";
     private static final String AD = "AD";
     private static final String US_PAGE = "user.jsp";
     private static final String US = "US";
+    private static final Logger logger = Logger.getLogger(LoginController.class);
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,24 +39,28 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("password");
             UserDAO dao = new UserDAO();
             UserDTO loginUser = dao.checkLogin(userID, password);
-            if(loginUser != null) {
+            if (loginUser != null) {
                 //phan quyen
                 HttpSession session = request.getSession();
                 session.setAttribute("LOGIN_USER", loginUser);
                 String roleID = loginUser.getRoleID();
-                if(AD.equals(roleID)) {
+                if (AD.equals(roleID)) {
                     url = ADMIN_PAGE;
-                }else if (US.equals(roleID)) {
+                    logger.info("Login with ADMIN role, username: " + loginUser.getFullName());
+                } else if (US.equals(roleID)) {
                     url = US_PAGE;
-                }else {
+                    logger.info("Login with USER role, username: " + loginUser.getFullName());
+                } else {
                     request.setAttribute("ERROR", "Your role is not support!");
+                    logger.warn("Your role is not support!");
                 }
-            }else {
+            } else {
                 request.setAttribute("ERROR", "Incorrect userID or password!");
+                logger.warn("Incorrect userID or password!");
             }
         } catch (Exception e) {
-            log("error at LoginController: " + e.toString());
-        }finally{
+            logger.error("Error at LoginController: " + e.toString());
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }

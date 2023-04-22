@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class EmailSender {
 
-    private final String API_KEY = "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";
+    private final String API_KEY = "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";
     private String EMAIL_SHOP;
 
     public EmailSender(String emailShop) {

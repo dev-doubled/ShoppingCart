@@ -41,7 +41,7 @@
                     <a href="viewcart.jsp" id="view">
                         <i class="fa-regular fa-cart-shopping" style="color: #fff"></i>
                         View Cart</a>
-                    <a href="AddProduct.jsp" class="addPhone">
+                    <a href="addProduct.jsp" class="addPhone">
                         <i class="fa-light fa-cart-plus" style="color: #fff"></i>
                         Add Phone</a>
                     <a href="MainController?action=Logout" class="logout">

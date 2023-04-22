@@ -20,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -32,6 +33,7 @@ public class CreateController extends HttpServlet {
     private static final String SUCCESS = "login.jsp";
     private static final long serialVersionUID = 1L;
     private static final String SECRET_KEY = "6Lcyh_kkAAAAAEPNvRP_ncMFLAIBXI2uQdd25JUa";
+    private static final Logger logger = Logger.getLogger(CreateController.class);
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -70,7 +72,7 @@ public class CreateController extends HttpServlet {
                     userError.setFullNameError("Full Name needs more than 2 characters");
                 }
                 UserDTO checkExist = dao.checkEmailDuplicate(email);
-                if(checkExist != null) {
+                if (checkExist != null) {
                     checkValid = false;
                     userError.setEmailError("The email already exists");
                 }
@@ -90,18 +92,22 @@ public class CreateController extends HttpServlet {
                         url = SUCCESS;
                     } else {
                         request.setAttribute("ERROR", "Unknown ERROR");
+                        logger.warn("Unknown ERROR");
                     }
                 } else {
                     request.setAttribute("USER_ERROR", userError);
+                    logger.warn("USER_ERROR: " + userError);
                 }
             } else {
                 request.setAttribute("RECAPTCHA_ERROR", "Please check reCAPTCHA!");
+                logger.warn("RECAPTCHA_ERROR");
             }
 
         } catch (Exception e) {
-            log("Error at CreateController: " + e.toString());
+            logger.error("Error at CreateController: " + e.toString());
             if (e.toString().contains("duplicate")) {
                 userError.setUserIDError("User ID already exist!");
+                logger.warn("User ID already exist!");
                 request.setAttribute("USER_ERROR", userError);
             }
         } finally {

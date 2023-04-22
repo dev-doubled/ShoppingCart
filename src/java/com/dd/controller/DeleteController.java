@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -23,6 +24,7 @@ public class DeleteController extends HttpServlet {
 
     private static final String ERROR = "SearchController";
     private static final String SUCCESS = "SearchController";
+    private static final Logger logger = Logger.getLogger(DeleteController.class);
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,17 +34,19 @@ public class DeleteController extends HttpServlet {
             String userId = request.getParameter("userID");
             UserDTO loginUser = (UserDTO) request.getSession().getAttribute("LOGIN_USER");
             if (loginUser.getUserID().equals(userId)) {
-                request.setAttribute("ERROR", "User dang login, khong duoc xoa");
+                request.setAttribute("ERROR", "User đang login, không được xóa!");
+                logger.warn("User is logged in, not deleted!");
             } else {
                 UserDAO dao = new UserDAO();
                 boolean checkDelete = dao.delete(userId);
                 if (checkDelete) {
                     url = SUCCESS;
+                    logger.info("Delete successfully with userID: " + userId);
                 }
             }
 
         } catch (Exception e) {
-            log("Error at DeleteController: " + e.toString());
+            logger.error("Error at DeleteController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

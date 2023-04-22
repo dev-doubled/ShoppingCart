@@ -100,7 +100,7 @@ public class OrderController extends HttpServlet {
                         }
                         request.setAttribute("SUCCESS", "Vui lòng kiểm tra email " + email + " để xác nhận đơn hàng.");
                         session.setAttribute("CART", null);
-                        EmailSender emailSender = new EmailSender("devddlearnjavaweb@gmail.com");
+                        EmailSender emailSender = new EmailSender("javaweblearning@gmail.com");
                         int randomNum = rd.nextInt(900000000) + 100000000;
                         String subject = "Xác nhận đơn hàng #" + orderID;
                         String message = "Cảm ơn quý khách đã đặt hàng của chúng tôi. Đơn hàng của quý khách đã được nhận và đang được xử lý. Vui lòng kiểm tra lại thông tin đơn hàng sau đây:\n\n"

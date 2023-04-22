@@ -48,7 +48,6 @@ public class FindController extends HttpServlet {
             UserDTO user = dao.getUser(userID);
             boolean checkExist = dao.check_id_email(userID, email);
             if (checkExist) {
-
                 Random rd = new Random();
                 int randomNum = rd.nextInt(900000) + 100000;
                 String code = randomNum + "";
@@ -56,7 +55,7 @@ public class FindController extends HttpServlet {
 
                 verifyDAO.insert(email, code, newDate);
 
-                EmailSender emailSender = new EmailSender("duylvd2002@gmail.com");
+                EmailSender emailSender = new EmailSender("devddlearnjavaweb@gmail.com");
                 String subject = "Xác nhận mật khẩu";
                 String message = "Dear " + user.getFullName() + "\n\n"
                         + "Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn\n\n"

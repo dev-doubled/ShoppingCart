@@ -70,7 +70,7 @@
                                             <div class="addToCart">
                                                 <input id="id" type="hidden" name="phoneID" value="${phone.phoneID}" readonly="" />
                                                 <input type="hidden" name="search" value="${param.search}">
-                                                <input type="submit" name="action" value="Add" id="add" />
+                                                <input type="submit" name="action" value="Add" id="add" onClick="addFunction()"/>
                                                 <input hidden="" name="currPage" value="${currPage}">
                                             </div>
                                             <div class="quantitys">
@@ -98,5 +98,11 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function addFunction() {
+                alert("Sản phẩm đã được thêm vào giỏ hàng")
+            }
+        </script>
     </body>
 </html>

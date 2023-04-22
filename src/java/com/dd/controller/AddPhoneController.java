@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -24,7 +25,7 @@ public class AddPhoneController extends HttpServlet {
 
     private static final String ERROR = "addProduct.jsp";
     private static final String SUCCESS = "MainController?search=&action=Phone&currPage=1";
-
+    private static final Logger logger = Logger.getLogger(AddPhoneController.class);
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -39,11 +40,13 @@ public class AddPhoneController extends HttpServlet {
             boolean checkExist = dao.checkDuplicate(phoneID);
             if (checkExist) {
                 request.setAttribute("PHONE_ERROR", "Phone ID already exist!");
+                logger.warn("Phone ID \"" + phoneID + "\" already exist!");
             } else {
                 Phone phone = new Phone(phoneID, phoneName, phoneImg, phonePrice, phoneQuantity);
                 boolean checkInsert = dao.create(phone);
                 if (checkInsert) {
                     url = SUCCESS;
+                    logger.info("Add successfully!");
                 }
             }
 

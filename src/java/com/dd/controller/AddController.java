@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -24,6 +25,7 @@ public class AddController extends HttpServlet {
 
     private static final String ERROR = "SearchProductController";
     private static final String SUCCESS = "SearchProductController";
+    private static final Logger logger = Logger.getLogger(AddController.class);
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,18 +39,18 @@ public class AddController extends HttpServlet {
             priceString = priceString.split(" ")[0];
             double phonePrice = Double.parseDouble(priceString);
             int phoneQuantity = Integer.parseInt(request.getParameter("cmbQuantity"));
-                HttpSession session = request.getSession();
-                Cart cart = (Cart) session.getAttribute("CART");
-                if (cart == null) {
-                    cart = new Cart();
-                }
-                Phone newPhone = new Phone(phoneID, phoneName, phoneImg, phonePrice, phoneQuantity);
-                cart.add(newPhone);
-                session.setAttribute("CART", cart);
-                url = SUCCESS;
-
+            HttpSession session = request.getSession();
+            Cart cart = (Cart) session.getAttribute("CART");
+            if (cart == null) {
+                cart = new Cart();
+            }
+            Phone newPhone = new Phone(phoneID, phoneName, phoneImg, phonePrice, phoneQuantity);
+            cart.add(newPhone);
+            session.setAttribute("CART", cart);
+            url = SUCCESS;
+            logger.info("The product\"" + phoneName + "\" has been added to cart");
         } catch (Exception e) {
-            log("Error at AddController: " + e.toString());
+            logger.error("Error at AddController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

@@ -21,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Form;
 import org.apache.http.client.fluent.Request;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -35,6 +36,7 @@ public class LoginGoogleController extends HttpServlet {
     private static final String AD = "AD";
     private static final String US_PAGE = "user.jsp";
     private static final String US = "US";
+    private static final Logger logger = Logger.getLogger(LoginGoogleController.class);
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -59,10 +61,14 @@ public class LoginGoogleController extends HttpServlet {
                 String roleID = checkExist.getRoleID();
                 if (AD.equals(roleID)) {
                     url = ADMIN_PAGE;
+                    logger.info("LoginGoogle with ADMIN role, username: " + fullName);
+
                 } else if (US.equals(roleID)) {
                     url = US_PAGE;
+                    logger.info("LoginGoogle with USER role, username: " + fullName);
                 } else {
                     request.setAttribute("ERROR", "Your role is not support!");
+                    logger.warn("Your role is not support!");
                 }
             } else {
                 UserDTO users = new UserDTO(newID, fullName, email, avatar, role, password);
@@ -71,11 +77,14 @@ public class LoginGoogleController extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", users);
                     url = US_PAGE;
+                    logger.info("The new user \"" +  users.getFullName() + "\" were inserted into the database");
                 } else {
                     request.setAttribute("ERROR", "Unknown ERROR");
+                    logger.warn("Unknown ERROR");
                 }
             }
         } catch (Exception e) {
+            logger.error("Error at LoginGoogleController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
