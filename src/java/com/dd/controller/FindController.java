@@ -55,7 +55,7 @@ public class FindController extends HttpServlet {
 
                 verifyDAO.insert(email, code, newDate);
 
-                EmailSender emailSender = new EmailSender("devddlearnjavaweb@gmail.com");
+                EmailSender emailSender = new EmailSender("javaweblearning@gmail.com");
                 String subject = "Xác nhận mật khẩu";
                 String message = "Dear " + user.getFullName() + "\n\n"
                         + "Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn\n\n"

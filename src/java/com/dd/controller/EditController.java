@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
 public class EditController extends HttpServlet {
 
     private static final String ERROR = "error.jsp";
-    private static final String SUCCESS = "viewcart.jsp";
+    private static final String SUCCESS = "viewCart.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,9 +44,7 @@ public class EditController extends HttpServlet {
                     if (check) {
                         session.setAttribute("CART", cart);
                         url = SUCCESS;
-                        
                     }
-
                 }
             }
         } catch (Exception e) {

@@ -66,23 +66,28 @@ public class CreateController extends HttpServlet {
                 if (userID.length() > 10 || userID.length() < 3) {
                     checkValid = false;
                     userError.setUserIDError("User ID needs more than 2 characters");
+                    logger.warn("User ID needs more than 2 characters");
                 }
                 if (fullName.length() > 20 || fullName.length() < 3) {
                     checkValid = false;
                     userError.setFullNameError("Full Name needs more than 2 characters");
+                    logger.warn("Full Name needs more than 2 characters");
                 }
                 UserDTO checkExist = dao.checkEmailDuplicate(email);
                 if (checkExist != null) {
                     checkValid = false;
                     userError.setEmailError("The email already exists");
+                    logger.warn("The email already exists");
                 }
                 if (password.length() > 10 || password.length() < 1) {
                     checkValid = false;
                     userError.setPasswordError("Password at least 1 characters");
+                    logger.warn("Password at least 1 characters");
                 }
                 if (!password.equals(confirm)) {
                     checkValid = false;
                     userError.setConfirmError("Confirm password does not match the password");
+                    logger.warn("Confirm password does not match the password");
                 }
                 //All complete
                 if (checkValid == true) {
@@ -90,6 +95,7 @@ public class CreateController extends HttpServlet {
                     boolean checkInsert = dao.create2(user);
                     if (checkInsert) {
                         url = SUCCESS;
+                        logger.info("Sign up successfully!");
                     } else {
                         request.setAttribute("ERROR", "Unknown ERROR");
                         logger.warn("Unknown ERROR");
@@ -104,12 +110,12 @@ public class CreateController extends HttpServlet {
             }
 
         } catch (Exception e) {
-            logger.error("Error at CreateController: " + e.toString());
             if (e.toString().contains("duplicate")) {
                 userError.setUserIDError("User ID already exist!");
                 logger.warn("User ID already exist!");
                 request.setAttribute("USER_ERROR", userError);
             }
+            logger.error("Error at CreateController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

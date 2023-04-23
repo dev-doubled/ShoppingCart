@@ -14,6 +14,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ADMIN Page</title>
         <link rel="stylesheet" href="./style/admin.css">
+        <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
+              type="text/css" />
     </head>
     <body>
         <div class="main">
@@ -21,15 +23,11 @@
             <c:if test="${not empty param.currPage}">
                 <c:set var="currPage" value="${param.currPage}"></c:set>
             </c:if>
-
             <div class="header__search">
-                <h1>Welcome: ${sessionScope.LOGIN_USER.fullName}</h1>
-                <div class="link">
-                    <a href="MainController?action=Logout" class="logout">Logout</a>
-                    <!--<a href="MainController?search=&action=Phone&currPage=1" class="shopping">Shopping</a>-->
-                </div>
-            </div>
-            <div class="main__search">   
+                <a href="MainController?search=&action=Phone&currPage=1">
+                    <h3>Welcome: <span>${sessionScope.LOGIN_USER.fullName}</span></h3>
+                </a>
+
                 <form action="MainController">
                     <div class="search">
                         <input title="search" type="text" name="search" value="${param.search}" placeholder="Search...">
@@ -37,6 +35,13 @@
                         <input hidden="" name="currPage" value="${currPage}">
                     </div>
                 </form>
+
+                <div class="option">
+                    <a href="MainController?action=Logout" class="logout">
+                        <i class="fa-regular fa-door-open"></i>
+                        Logout
+                    </a>
+                </div>
             </div>
             <c:if test="${requestScope.LIST_USER != null}">
                 <c:if test="${not empty requestScope.LIST_USER}">
@@ -46,15 +51,16 @@
                                 <tr>
                                     <th>No</th>
                                     <th>User ID</th>
+                                    <th>Avatar</th>
                                     <th>Full Name</th>
                                     <th>Role ID</th>
                                     <th>Password</th>
-                                    <th>Delete</th>
                                     <th>Update</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:set var="count" value="${(currPage - 1) * 10 + 1}" />
+                                <c:set var="count" value="${(currPage - 1) * 5 + 1}" />
                                 <c:forEach var="user" varStatus="counter" items="${requestScope.LIST_USER}">
                                 <form action="MainController">
                                     <tr>
@@ -65,6 +71,9 @@
                                             ${user.userID}
                                         </td>
                                         <td>
+                                            <img src="${user.avatar}" class="avatar">
+                                        </td>
+                                        <td>
                                             <input title="fullName" type="text" name="fullName" value="${user.fullName}" id="edit" required="">
                                         </td>
                                         <td>
@@ -73,7 +82,12 @@
                                         <td>
                                             ${user.password}
                                         </td>        
-
+                                        <td>
+                                            <input type = "hidden" name="userID" value="${user.userID}" />
+                                            <input type="hidden" name="search" value="${param.search}">
+                                            <input type="submit" name="action" value="Update" id="update"> 
+                                            <input hidden="" name="currPage" value="${currPage}">
+                                        </td>
                                         <c:url var="deleteLink" value="MainController">
                                             <c:param name="action" value="Delete"></c:param>
                                             <c:param name="userID" value="${user.userID}"></c:param>
@@ -81,14 +95,7 @@
                                             <c:param name="currPage" value="${currPage}"></c:param>
                                         </c:url>
                                         <td id="delete">
-                                            <a href="${deleteLink}">Delete</a> 
-                                        </td>
-
-                                        <td>
-                                            <input type = "hidden" name="userID" value="${user.userID}" />
-                                            <input type="hidden" name="search" value="${param.search}">
-                                            <input type="submit" name="action" value="Update" id="update"> 
-                                            <input hidden="" name="currPage" value="${currPage}">
+                                            <a href="${deleteLink}"><i class="fa-sharp fa-solid fa-trash"></i></a> 
                                         </td>
                                     </tr>
                                 </form>
@@ -97,8 +104,6 @@
                             </tbody>
                         </table>
                         <br>
-
-
                     </div>
                     <p class="errorMessage">${requestScope.ERROR}</p>
                 </c:if>
@@ -112,7 +117,6 @@
                     <c:set var="page" value="${i}" />
                     <a href="${urlChuyentrang}&amp;currPage=${page}" class="page ${currPage == page ? 'current' : ''}">${page}</a>
                 </c:forEach>
-
             </div>
         </div>
     </body>

@@ -48,7 +48,7 @@ public class AddController extends HttpServlet {
             cart.add(newPhone);
             session.setAttribute("CART", cart);
             url = SUCCESS;
-            logger.info("The product\"" + phoneName + "\" has been added to cart");
+            logger.info("The product\"" + phoneName + "\" has been added to cart. Quantity: " + phoneQuantity);
         } catch (Exception e) {
             logger.error("Error at AddController: " + e.toString());
         } finally {

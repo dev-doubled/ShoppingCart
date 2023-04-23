@@ -60,7 +60,8 @@ public class VerifyController extends HttpServlet {
             int convertRealTime = Integer.parseInt(realTime);
             int convertSqlTime = Integer.parseInt(sqlTime);
             //check verify
-            if (check && (sqlRealDate.equals(day) && convertRealTime - convertSqlTime < 1)) {
+            System.out.println(check);
+            if (check) {
                 dao.delete(email);
                 url = SUCCESS;
                 

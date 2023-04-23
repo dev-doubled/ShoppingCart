@@ -116,8 +116,8 @@ public class UserDAO {
                 ptm.setString(1, "%" + search + "%");
                 rs = ptm.executeQuery();
                 int count = 1;
-                int maxCount = currPage * 10;
-                int minCount = (currPage - 1) * 10 + 1;
+                int maxCount = currPage * 5;
+                int minCount = (currPage - 1) * 5 + 1;
                 while (rs.next()) {
                     if (minCount <= count && count <= maxCount) {
                         String userID = rs.getString("userID");

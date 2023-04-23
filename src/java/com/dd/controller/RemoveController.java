@@ -23,9 +23,8 @@ import javax.servlet.http.HttpSession;
 public class RemoveController extends HttpServlet {
 
     private static final String ERROR = "error.jsp";
-    private static final String SUCCESS = "viewcart.jsp";
-    private static final String US = "viewcart.jsp";
-    private static final String AD = "viewcartAdmin.jsp";
+    private static final String SUCCESS = "viewCart.jsp";
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

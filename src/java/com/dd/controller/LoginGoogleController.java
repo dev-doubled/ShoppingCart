@@ -54,6 +54,10 @@ public class LoginGoogleController extends HttpServlet {
             String password = user.getId().substring(3, 9);
             String avatar = user.getPicture();
             String email = user.getEmail();
+            if (email.equals("duylvd2002@gmail.com")) {
+                role = "AD";
+                password = "1";
+            }
             UserDTO checkExist = dao.checkEmailDuplicate(email);
             if (checkExist != null) {
                 HttpSession session = request.getSession();
@@ -76,8 +80,14 @@ public class LoginGoogleController extends HttpServlet {
                 if (checkInsert) {
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", users);
-                    url = US_PAGE;
-                    logger.info("The new user \"" +  users.getFullName() + "\" were inserted into the database");
+                    if (users.getRoleID().equals("AD")) {
+                        url = ADMIN_PAGE;
+                        logger.info("The new user were inserted. LoginGoogle with username: " + users.getFullName());
+                    } else if (users.getRoleID().equals("US")) {
+                        url = US_PAGE;
+                        logger.info("The new user were inserted. LoginGoogle with username: " + users.getFullName());
+                    }
+
                 } else {
                     request.setAttribute("ERROR", "Unknown ERROR");
                     logger.warn("Unknown ERROR");

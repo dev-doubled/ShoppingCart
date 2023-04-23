@@ -7,68 +7,55 @@
     font-family: 'Shantell Sans', cursive;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
     overflow: hidden;
 }
 
-.main{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 95%;
-    width: 60%;
-    border-radius: 10px;
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-
+.main {
+    height: 100%;
+    width: 100%;
 }
 
 .header__search {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    background-color: #181823;
+    height: 65px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.header__search h1 {
+.header__search a {
     color: #2691d9;
     font-size: 24px;
+    text-decoration: none;
 }
 
-.logout {
-    cursor: pointer;
-    text-decoration: none;
+.header__search a span {
+    color: red;
+}
+
+.option a {
     color: #fff;
     background-color: red;
     padding: 5px 10px;
-    transition: linear .5s;
+    font-size: 18px;
+    font-weight: 700;
 }
-.shopping {
-    background-color: #2691d9;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 10px;
-    transition: linear .5s;
-}
-.header__search a:hover {
-    padding: 7px 12px;
-}
+
 .search {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .search input[type="text"] {
-    width: 60%;
+    width: 75%;
     padding: 0 5px;
     height: 40px;
     font-size: 16px;
-    border: 1px solid #2691d9;
     outline: none;
     transition: all 0.5s;
 }
@@ -85,18 +72,41 @@ body{
     outline: none;
     margin-left: 5px;
 }
+
 .result__search {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
 
+table {
+    width: 80%;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+th,
+td {
+    padding: 6px 17px;
+    font-size: 18px;
+}
+
+th {
+    border-bottom: 1px solid #333;
+}
+
+td {
+    border-bottom: 1px solid #333;
 }
 
 
-th, td {
-    padding: 6px 17px;
-    font-size: 18px;
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #333;
+    border-radius: 50%;
 }
 
 #edit {
@@ -109,29 +119,28 @@ th, td {
     text-align: center;
 }
 
-#edit, #edit-1 {
+#edit,
+#edit-1 {
     outline: none;
     border: none;
     font-size: 18px;
 }
 
-#delete a{
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-    background-color: red;
-    padding: 3px;
-    border-radius: 5px;
+#delete a {
+    padding: 10px;
+    color: red;
+    font-size: 24px;
 }
 
 #update {
-    padding: 6px;
+    width: 70px;
+    padding: 12px;
     cursor: pointer;
     background-color: #2691d9;
+    font-weight: 700;
     border: none;
     outline: none;
     color: #fff;
-    width: 70px;
     border-radius: 5px;
 }
 
@@ -141,8 +150,9 @@ th, td {
     align-items: center;
     margin-top: 20px;
     position: absolute;
-    bottom: 40px;
-    left: 40%;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .page.current {
@@ -154,6 +164,7 @@ th, td {
     width: 50px;
     text-align: center;
 }
+
 .page {
     text-decoration: none;
     border: 1px solid #2691d9;
@@ -172,6 +183,7 @@ th, td {
     color: red;
     font-size: 24px;
     font-weight: 600;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
+    margin-left: 150px;
 }

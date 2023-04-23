@@ -38,7 +38,7 @@
                     </div>
                 </form>
                 <div class="option">
-                    <a href="viewcart.jsp" id="view">
+                    <a href="viewCart.jsp" id="view">
                         <i class="fa-regular fa-cart-shopping" style="color: #fff"></i>
                         View Cart</a>
                     <a href="MainController?action=Logout" class="logout">

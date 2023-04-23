@@ -51,8 +51,8 @@ public class AuthenFilter implements Filter {
 //        USER_RESOURCE.add("LoginController");
         USER_RESOURCE.add("user.jsp");
         USER_RESOURCE.add("shopping.jsp");
-        USER_RESOURCE.add("viewcart.jsp");
-        USER_RESOURCE.add("viewcartSuccess.jsp");
+        USER_RESOURCE.add("viewCart.jsp");
+        USER_RESOURCE.add("viewCartSuccess.jsp");
 
         //resource ma role AD duoc phep du dung
         ADMIN_RESOURCE = new ArrayList<>();

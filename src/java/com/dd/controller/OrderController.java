@@ -37,8 +37,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "OrderController", urlPatterns = {"/OrderController"})
 public class OrderController extends HttpServlet {
 
-    private static final String ERROR = "viewcart.jsp";
-    private static final String SUCCESS = "viewcartSuccess.jsp";
+    private static final String ERROR = "viewCart.jsp";
+    private static final String SUCCESS = "viewCartSuccess.jsp";
     private static final long serialVersionUID = 1L;
     private static final String SECRET_KEY = "6Lcyh_kkAAAAAEPNvRP_ncMFLAIBXI2uQdd25JUa";
 
