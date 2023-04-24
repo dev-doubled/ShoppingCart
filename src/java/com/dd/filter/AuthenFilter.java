@@ -67,11 +67,13 @@ public class AuthenFilter implements Filter {
         NON_AUTHEN_RESOURCE = new ArrayList<>();
         NON_AUTHEN_RESOURCE.add("login.html");
         NON_AUTHEN_RESOURCE.add("login.jsp");
+        NON_AUTHEN_RESOURCE.add("show.jsp");
         NON_AUTHEN_RESOURCE.add("MainController");
         NON_AUTHEN_RESOURCE.add("LoginController");
         NON_AUTHEN_RESOURCE.add("LoginGoogleController");
         NON_AUTHEN_RESOURCE.add("OrderController");
         NON_AUTHEN_RESOURCE.add("FindController");
+        NON_AUTHEN_RESOURCE.add("ShowController");
         NON_AUTHEN_RESOURCE.add("EmailSender");
         NON_AUTHEN_RESOURCE.add(".png");
         NON_AUTHEN_RESOURCE.add(".jpg");

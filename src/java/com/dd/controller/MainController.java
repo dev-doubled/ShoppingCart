@@ -53,7 +53,8 @@ public class MainController extends HttpServlet {
     private static final String FIND_CONTROLLER = "FindController";
     private static final String CONFIRM = "Confirm";
     private static final String CONFIRM_CONTROLLER = "ConfirmController";
-
+    private static final String SHOW = "Show";
+    private static final String SHOW_CONTROLLER = "ShowController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -93,10 +94,13 @@ public class MainController extends HttpServlet {
                 url = FIND_CONTROLLER;
             } else if (CONFIRM.equals(action)) {
                 url = CONFIRM_CONTROLLER;
+            } else if (SHOW.equals(action)) {
+                url = SHOW_CONTROLLER;
             } else {
                 request.setAttribute("ERROR", "Your role is not support!");
             }
         } catch (Exception e) {
+            log("Error at MainController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

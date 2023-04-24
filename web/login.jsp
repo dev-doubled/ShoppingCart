@@ -37,7 +37,6 @@
                         <input type="submit" name="action" value="Login" />
                     </div>
                 </div>
-
             </form>
             <div class="more-option">
                 <div class="login__google">
@@ -52,6 +51,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>

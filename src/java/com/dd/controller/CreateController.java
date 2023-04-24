@@ -50,7 +50,6 @@ public class CreateController extends HttpServlet {
             String confirm = request.getParameter("confirm");
             String avatar = request.getParameter("avatar");
             String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
-
             String verificationUrl = "https://www.google.com/recaptcha/api/siteverify?"
                     + "secret=" + SECRET_KEY
                     + "&response=" + gRecaptchaResponse;

@@ -30,7 +30,7 @@ public class UserDAO {
     private static final String CREATE = "INSERT INTO tblUsers(userId, fullName, roleID, password, avatar, email) VALUES(?,?,?,?,?,?)";
     private static final String CHECK_ID_EMAIL = "SELECT userID, email FROM tblUsers WHERE userID = ? AND email = ?";
     private static final String GET = "SELECT * FROM tblUsers WHERE userID = ?";
-    private static final String SEARCH_TOP_2 = "SELECT top 2 * FROM tblUsers";
+    private static final String SHOW = "SELECT top 1 * FROM tblUsers WHERE roleID = 'US'";
 
     public UserDTO checkLogin(String userID, String password) throws SQLException {
         UserDTO loginUser = null;
@@ -146,7 +146,7 @@ public class UserDAO {
         return listUser;
     }
 
-    public List<UserDTO> getListUserTop2() throws SQLException {
+    public List<UserDTO> getListUserTop1() throws SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ptm = null;
@@ -154,7 +154,7 @@ public class UserDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                ptm = conn.prepareStatement(SEARCH_TOP_2);
+                ptm = conn.prepareStatement(SHOW);
                 rs = ptm.executeQuery();
                 while (rs.next()) {
                     String userID = rs.getString("userID");
@@ -164,7 +164,6 @@ public class UserDAO {
                     String avatar = rs.getString("avatar");
                     String password = "****";
                     listUser.add(new UserDTO(userID, fullName, email, avatar, roleID, password));
-
                 }
             }
         } catch (Exception e) {
