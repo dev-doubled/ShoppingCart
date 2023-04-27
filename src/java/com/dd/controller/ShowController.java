@@ -32,7 +32,7 @@ public class ShowController extends HttpServlet {
         String url = ERROR;
         try {
             UserDAO dao = new UserDAO();
-            List<UserDTO> listUser = dao.getListUserTop1();
+            List<UserDTO> listUser = dao.getListUserTop2();
             if(listUser.size() > 0) {
                 request.setAttribute("SHOW_USER", listUser);
                 url = SUCCESS;

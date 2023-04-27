@@ -30,7 +30,7 @@ public class UserDAO {
     private static final String CREATE = "INSERT INTO tblUsers(userId, fullName, roleID, password, avatar, email) VALUES(?,?,?,?,?,?)";
     private static final String CHECK_ID_EMAIL = "SELECT userID, email FROM tblUsers WHERE userID = ? AND email = ?";
     private static final String GET = "SELECT * FROM tblUsers WHERE userID = ?";
-    private static final String SHOW = "SELECT top 1 * FROM tblUsers WHERE roleID = 'US'";
+    private static final String SHOW = "SELECT top 2 * FROM tblUsers";
 
     public UserDTO checkLogin(String userID, String password) throws SQLException {
         UserDTO loginUser = null;
@@ -146,7 +146,7 @@ public class UserDAO {
         return listUser;
     }
 
-    public List<UserDTO> getListUserTop1() throws SQLException {
+    public List<UserDTO> getListUserTop2() throws SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ptm = null;

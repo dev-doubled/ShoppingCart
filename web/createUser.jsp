@@ -32,7 +32,7 @@
                 </div>
                 <p class="error">${requestScope.USER_ERROR.fullNameError}</p>
                 <div class="email text">
-                    <input title="fullName" type="email" name="email" required="" /><br>
+                    <input title="email" type="email" name="email" required="" /><br>
                     <span></span>
                     <label>Email</label>
                 </div>

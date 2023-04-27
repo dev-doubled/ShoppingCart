@@ -13,9 +13,7 @@
         <title>SHOW USER</title>
     </head>
     <body>
-        <form action="MainController">
-            <input type="submit" name="action" value="Show">
-        </form>
+        
         <br>
         <c:if test="${requestScope.SHOW_USER != null}">
             <c:if test="${not empty requestScope.SHOW_USER}">
